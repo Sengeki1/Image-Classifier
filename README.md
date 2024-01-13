@@ -3,7 +3,7 @@ A  simple image classification pipeline based on the k-nearest Neighbor or the S
 
 The goals of this assignment are as follows:
 
-## understand the basic Image Classification pipeline and the data-driven approach (train/predict stages)
+### understand the basic Image Classification pipeline and the data-driven approach (train/predict stages)
 
 ## understand the train/val/test splits and the use of validation data for hyperparameter tuning.
 
