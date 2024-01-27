@@ -9,6 +9,7 @@ def euclidean_distance(x1, x2):
 class KNearestNeighbour:
     def __init__(self, k=3):
         self.k = k
+        self.sample = 0
     
     def fit(self, x, y):
         self.x_train = x
@@ -19,6 +20,8 @@ class KNearestNeighbour:
         return predictions
     
     def _predict(self, x):
+        self.sample += 1
+        print("Sample = ", self.sample, end="\r") 
         # compute the distance between the given point and the other points
         distances = [euclidean_distance(x, x_train) for x_train in self.x_train]
 
@@ -30,4 +33,4 @@ class KNearestNeighbour:
         # our label to check which classe our sample is more likely to be
 
         most_common = Counter(k_nearest_labels).most_common() # getting the most common classe
-        return most_common[0]
+        return most_common[0][0]
