@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from data import Data
 from knn import KNearestNeighbour
 from svm import SVM
+from softmax import Softmax
 
 if __name__ == "__main__":
     main = Data()
@@ -34,7 +35,7 @@ if __name__ == "__main__":
 
     acc_knn = np.sum(predictions_knn == val_y) / len(val_y)
     print(f"\nAccuracy: {acc_knn}") # Accuracy: 0.276 as k = 3
-
+    
     #
     #   Support Vector Machine (SVM) 
     #
@@ -47,5 +48,8 @@ if __name__ == "__main__":
     print(f"\nAccuracy: {acc_svm}") # Accuracy: 0.119 
 
     #
-    #   
+    #   Softmax
     #
+
+    softmax = Softmax(train_x, val_x, val_y, train_y)
+    print(f"\nAccuracy: {softmax.accuracy():.2f}") # Accuracy: 0.09
