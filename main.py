@@ -4,6 +4,7 @@ from data import Data
 from knn import KNearestNeighbour
 from svm import SVM
 from softmax import Softmax
+from twoLayerNeuralNet import NeuralNet
 
 if __name__ == "__main__":
     main = Data()
@@ -29,7 +30,7 @@ if __name__ == "__main__":
     #   K-Nearest Neighbour
     #
 
-    knn = KNearestNeighbour()
+    '''knn = KNearestNeighbour()
     knn.fit(train_x, train_y)
     predictions_knn = knn.predict(val_x)
 
@@ -52,4 +53,11 @@ if __name__ == "__main__":
     #
 
     softmax = Softmax(train_x, val_x, val_y, train_y)
-    print(f"\nAccuracy: {softmax.accuracy():.2f}") # Accuracy: 0.09
+    print(f"\nAccuracy: {softmax.accuracy():.2f}") # Accuracy: 0.09'''
+
+    #
+    #   Two Layer Neural Network
+    #
+
+    neuralNet = NeuralNet(train_x, train_y)
+    params, cost = neuralNet.fit()
