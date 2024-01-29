@@ -62,3 +62,5 @@ if __name__ == "__main__":
     train_x, train_y = train_x.T, train_y.reshape(1, train_y.shape[0])
     neuralNet = NeuralNet(train_x, train_y)
     params, cost = neuralNet.fit()
+    
+    print(f"\nAccuracy: {neuralNet.accuracy():.2f}")

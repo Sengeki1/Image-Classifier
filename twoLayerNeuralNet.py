@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.metrics import accuracy_score
 
 def sigmoid(x):
     return (1 / (1 + np.exp(-x)))
@@ -68,5 +69,9 @@ class NeuralNet:
             params = self.updateParam(gradients, learning_rate)
 
             cost.append(costit)
-        return params, cost
-        
+        return params, cost, y
+    
+    def accuracy(self):
+        y_pred, _ = self.forwardPropagation()
+        acc = accuracy_score(self.y_train, y_pred)
+        return acc
