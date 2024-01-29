@@ -33,9 +33,9 @@ class NeuralNet:
 
         return y, {'Z1': Z1, 'Z2': Z2, 'A1': A1, 'y': y}
     
-    def cost(self, predict, actual):
-        m = actual.shape[1]
-        cost = -np.sum(np.multiply(np.log(predict), actual) + np.multiply((1 - actual), np.log(1 - predict))) / m
+    def cost(self, predict):
+        m = self.y_train.shape[1]
+        cost = -np.sum(np.multiply(np.log(predict), self.y_train) + np.multiply((1 - self.y_train), np.log(1 - predict))) / m
         return np.squeeze(cost)
     
     def backPropagation(self, cache):
@@ -63,9 +63,9 @@ class NeuralNet:
         for i in range(number_of_iterations):
             print("Sample = ", i, end="\r")
             y, cache = self.forwardPropagation()
-            costit = cost(y, self.y_train)
+            costit = self.cost(y)
             gradients = self.backPropagation(cache)
-            params = self.updateParam(gradients, self.params, learning_rate)
+            params = self.updateParam(gradients, learning_rate)
 
             cost.append(costit)
         return params, cost
