@@ -69,4 +69,9 @@ class NeuralNet:
             params = self.updateParam(gradients, learning_rate)
 
             cost.append(costit)
+        
         return params, cost
+    
+    def accuracy(self):
+        y_pred, _ = self.forwardPropagation()
+        return (y_pred / self.y_train.shape[0])[0][0]
