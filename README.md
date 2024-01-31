@@ -63,3 +63,64 @@ SVM finds the best or optimal line through the maximum margin, which means it ha
 
 These, two vectors are support vectors. In SVM, only support vectors are contributing. That’s why these points or vectors are known as support vectors. Due to support vectors, this algorithm is called a Support Vector Algorithm(SVM).
 In the picture, the line in the middle is a maximum margin hyperplane or classifier. In a two-dimensional plane, it looks like a line, but in a multi-dimensional, it is a hyperplane. That’s how SVM works.
+
+
+## How Softmax work
+
+![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/ed840a90-cde8-456f-b0f3-e08e9299c713)
+
+As the name suggests, in softmax regression (SMR), we replace the sigmoid logistic function by the so-called softmax function φ:
+
+![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/a0b2646d-96aa-41d9-9b14-2e73fd7960d4)
+
+where we define the net input z as
+
+![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/a83e3b83-0df1-4fa3-9b06-31e5721e5e7c)
+
+(w is the weight vector, x is the feature vector of 1 training sample, and w0 is the bias unit.)
+Now, this softmax function computes the probability that this training sample x(i) belongs to class j given the weight and net input z(i). So, we compute the probability p(y = j | x(i); wj) for each class label in j = 1, ..., k. Note the normalization term in the denominator which causes these class probabilities to sum up to one.
+
+
+## How a Neural Network works
+
+Neural networks are relatively crude electronic networks of neurons based on the neural structure of the brain. They process records one at a time, and learn by comparing their classification of the record (i.e., largely arbitrary) with the known actual classification of the record. The errors from the initial classification of the first record is fed back into the network, and used to modify the networks algorithm for further iterations.
+
+![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/f8853231-702d-425b-9ce3-cec533c812c7)
+
+
+Neurons are organized into layers: input, hidden and output. The input layer is composed not of full neurons, but rather consists simply of the record's values that are inputs to the next layer of neurons. The next layer is the hidden layer. Several hidden layers can exist in one neural network. The final layer is the output layer, where there is one node for each class. A single sweep forward through the network results in the assignment of a value to each output node, and the record is assigned to the class node with the highest value.
+
+### Forward Propagation
+
+![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/58b2f398-bae6-40d0-a7e1-a3231359b337)
+
+Forward propagation is where input data is fed through a network, in a forward direction, to generate an output. The data is accepted by hidden layers and processed, as per the activation function, and moves to the successive layer. The forward flow of data is designed to avoid data moving in a circular motion, which does not generate an output. 
+
+During forward propagation, pre-activation and activation take place at each hidden and output layer node of a neural network. The pre-activation function is the calculation of the weighted sum. The activation function is applied, based on the weighted sum, to make the neural network flow non-linearly using bias. 
+
+### BackPropagation
+
+Neural networks use supervised learning to generate output vectors from input vectors that the network operates on. It Compares generated output to the desired output and generates an error report if the result does not match the generated output vector. Then it adjusts the weights according to the bug report to get your desired output.
+
+#### Backpropagation Algorithm:
+
+- Step 1: Inputs X, arrive through the preconnected path.
+
+- Step 2: The input is modeled using true weights W. Weights are usually chosen randomly.
+
+- Step 3: Calculate the output of each neuron from the input layer to the hidden layer to the output layer.
+
+- Step 4: Calculate the error in the outputs:
+
+  ```Backpropagation Error= Actual Output – Desired Output```
+  
+- Step 5: From the output layer, go back to the hidden layer to adjust the weights to reduce the error.
+
+- Step 6: Repeat the process until the desired output is achieved.
+
+![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/dbac179b-a4e1-4296-b9fe-11734cd8e584)
+
+
+For more explanation go to <https://towardsdatascience.com/understanding-backpropagation-algorithm-7bb3aa2f95fd> or <https://www.geeksforgeeks.org/backpropagation-in-data-mining/>
+
+
