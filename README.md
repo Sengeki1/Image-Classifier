@@ -67,6 +67,8 @@ In the picture, the line in the middle is a maximum margin hyperplane or classif
 
 ## How Softmax work
 
+Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. In logistic regression we assumed that the labels were binary: y(i)∈{0,1} . We used such a classifier to distinguish between two kinds of hand-written digits.
+
 ![image](https://github.com/Sengeki1/Image-Classifier/assets/106749775/ed840a90-cde8-456f-b0f3-e08e9299c713)
 
 As the name suggests, in softmax regression (SMR), we replace the sigmoid logistic function by the so-called softmax function φ:
